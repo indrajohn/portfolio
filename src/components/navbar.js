@@ -1,8 +1,11 @@
 "use client";
+import { useLayoutProvider } from "@/context/myContext";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function NavBar() {
+  const { navbarActive, setNavBarActive } = useLayoutProvider();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [menu, setMenu] = useState([
@@ -96,7 +99,9 @@ function NavBar() {
                     data-aos="fade-up"
                     data-aos-duration={`${900 + index * 400}`}
                     // href={_menu.url}
-                    className="text-gray-300 hover:text-[#0ef] px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                    className={`text-gray-300 hover:text-[#0ef] px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
+                      navbarActive === _menu.url ? "active" : ""
+                    }`}
                   >
                     {_menu.title}
                   </div>

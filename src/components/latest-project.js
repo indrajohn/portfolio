@@ -3,12 +3,56 @@ import Image from "next/image";
 import Link from "next/link";
 
 function PortfolioPage() {
+  const portfolioList = [
+    {
+      id: 1,
+      name: "Euna Italian Restaurant",
+      img: "/img/portfolio/euna.png",
+      alt: "Euna Italian Restaurant",
+      link: "https://demo-euna.indrajohn.tech/",
+    },
+    {
+      id: 2,
+      name: "Armada Orient Furniture",
+      img: "/img/portfolio/armadaorient.png",
+      alt: "Armada Orient",
+      link: "https://armadaorient.com/",
+    },
+    {
+      id: 3,
+      name: "GBI Miracle Service",
+      img: "/img/portfolio/gbi_miracle_service_sydney.png",
+      alt: "GBI Miracle Service",
+      link: "https://www.gbimssydney.org.au/",
+    },
+    {
+      id: 4,
+      name: "Hana Bank Indonesia",
+      img: "/img/portfolio/hana_bank.png",
+      alt: "Hana Bank Indonesia",
+      link: "https://www.hanabank.co.id/",
+    },
+    {
+      id: 5,
+      name: "Indra Wedding",
+      img: "/img/portfolio/indra_wedding.png",
+      alt: "Indra Wedding",
+      link: "https://wedding.indrajohn.com.au/",
+    },
+    {
+      id: 5,
+      name: "Murni Wedding",
+      img: "/img/portfolio/murni_wedding.png",
+      alt: "Murni Wedding",
+      link: "https://murni-wedding.indrajohn.com.au/",
+    },
+  ];
   return (
     <section id="portfolio">
       <div className="w-full flex">
         <div className="w-full text-white flex">
-          <div className="m-8 flex text-center flex-col">
-            <div className="flex mx-auto">
+          <div className="m-8 flex text-center flex-col items-center justify-center w-full">
+            <div className="flex mx-auto mb-8">
               <h1 className="text-3xl font-bold">
                 Latest
                 <span className="text-3xl font-bold text-[#0ef] mx-2">
@@ -16,65 +60,86 @@ function PortfolioPage() {
                 </span>
               </h1>
             </div>
-            <div className="mx-auto flex-1">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8 mx-auto w-3/4">
-                <Link
-                  href="https://demo-euna.indrajohn.tech/"
-                  className="border-white/40 border-2 rounded-lg p-1 shadow-lg"
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 mx-auto gap-4 w-full">
+              {portfolioList.map((_portfolio, index) => (
+                <div
+                  key={index}
+                  className="border-white/40 border-2 rounded-lg w-full shadow-lg group"
                 >
-                  <Image
-                    src="/img/portfolio/euna.png"
-                    width={500}
-                    height={500}
-                    alt="Euna Italian Restaurant"
-                  />
-                </Link>
-
-                <div className="border-white/40 border-2 rounded-lg p-1 shadow-lg">
-                  <Image
-                    src="/img/armada-orient.jpg"
-                    width={500}
-                    height={500}
-                    alt="Armada Orient Furniture"
-                  />
+                  <div className="relative w-full h-full min-h-[250px] max-h-[400px]">
+                    <Image
+                      src={_portfolio.img}
+                      width={500}
+                      height={500}
+                      className="object-cover absolute top-0 left-0 w-full h-full min-h-[250px] max-h-[400px]"
+                      alt={_portfolio.alt}
+                    />
+                    <div className="absolute z-50 w-full h-0 bottom-0 left-0 bg-[#1f242d]/90 overflow-hidden duration-1000 transform group-hover:h-full">
+                      <div className="flex flex-col items-center justify-center h-full px-4 my-auto">
+                        <div>
+                          <h1 className="text-xl lg:text-2xl">
+                            {_portfolio.name}
+                          </h1>
+                          <div className="grid grid-cols-2 gap-4">
+                            <Link
+                              href={"#"}
+                              className="p-2 flex items-center justify-center rounded border-2 border-slate-600 hover:bg-slate-600"
+                            >
+                              Details
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 72 72"
+                              >
+                                <path
+                                  fill="#FFF"
+                                  d="M51.065 43.916V10.979H18.937v49.76h16.062"
+                                />
+                                <circle
+                                  cx="43.167"
+                                  cy="52.167"
+                                  r="11.129"
+                                  fill="#D0CFCE"
+                                />
+                                <g
+                                  fill="none"
+                                  stroke="#000"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="10"
+                                  stroke-width="2"
+                                >
+                                  <path d="M51.065 43.916V10.979H18.937v49.76h16.062M23.667 16.02H32m-8.333 8.48h22m-22 3.771h22m-22 3.77h22m-22 3.771h22m-22 3.771h22M36.38 43.35H23.67m9.58 3.77h-9.58m8.45 3.77h-8.45" />
+                                  <circle cx="43.167" cy="52.167" r="11.129" />
+                                  <path d="m51.065 60.739l5.467 5.467M33.439 48.453h13.436m-14.703 5.386h14.703" />
+                                </g>
+                              </svg>
+                            </Link>
+                            <Link
+                              href={"#"}
+                              className="p-2  flex items-center justify-center  rounded border-2 border-slate-600 hover:bg-slate-600"
+                            >
+                              Go To Website
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6v2H5v12h12v-6h2zM13 3v2h4.586l-7.793 7.793l1.414 1.414L19 6.414V11h2V3h-8z"
+                                />
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="border-white/40 border-2 rounded-lg p-1 shadow-lg">
-                  <Image
-                    src="/img/portfolio3.jpg"
-                    width={500}
-                    height={500}
-                    alt="Portfolio 3"
-                  />
-                </div>
-
-                <div className="border-white/40 border-2 rounded-lg p-1 shadow-lg">
-                  <Image
-                    src="/img/portfolio4.jpg"
-                    width={500}
-                    height={500}
-                    alt="Portfolio 4"
-                  />
-                </div>
-
-                <div className="border-white/40 border-2 rounded-lg p-1 shadow-lg">
-                  <Image
-                    src="/img/portfolio5.jpg"
-                    width={500}
-                    height={500}
-                    alt="Portfolio 5"
-                  />
-                </div>
-
-                <div className="border-white/40 border-2 rounded-lg p-1  shadow-lg">
-                  <Image
-                    src="/img/portfolio6.jpg"
-                    width={500}
-                    height={500}
-                    alt="Portfolio 6"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
