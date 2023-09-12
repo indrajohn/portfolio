@@ -1,7 +1,5 @@
 "use client";
 
-import Footer from "@/components/footer";
-import NavBar from "@/components/navbar";
 import PortfolioDetailsComponents from "@/components/portfolio-details";
 import { useParams } from "next/navigation";
 
@@ -20,9 +18,9 @@ export default function PortfolioDetailsPage() {
           <path
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
             d="M20 12H4m0 0l6-6m-6 6l6 6"
           />
         </svg>
