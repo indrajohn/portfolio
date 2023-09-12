@@ -10,22 +10,27 @@ function Hero() {
             <div className="flex flex-col">
               <h2
                 className="text-xl font-bold"
-                data-aos="fade-down"
-                data-aos-duration="2000"
+                data-aos="zoom-out-down"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="1500"
               >
                 Hello, It&apos;s me
               </h2>
               <h1
                 className="text-3xl font-bold"
                 data-aos="fade-right"
-                data-aos-duration="2000"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="1500"
               >
                 Yoseph Indra John Saputra
               </h1>
               <span
                 className="mt-3"
                 data-aos="fade-right"
-                data-aos-duration="2000"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="1500"
               >
                 I have over 5 years+ of development experience, including
                 working as a fullstack developer. I can build and consume APIs,

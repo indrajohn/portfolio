@@ -6,15 +6,19 @@ import PortfolioPage from "@/components/latest-project";
 import MyServicesPage from "@/components/my-services";
 import NavBar from "@/components/navbar";
 import SkillPage from "@/components/skill";
+import Timeline from "@/components/timeline";
 export default function Home() {
   return (
     <>
       <NavBar />
       <Hero />
+
       <AboutMePage />
-      <SkillPage />
-      <MyServicesPage />
+      <Timeline />
+      {/* <SkillPage /> */}
+      {/* <MyServicesPage /> */}
       <PortfolioPage />
+
       <ContactPage />
       <GoToTopButton />
     </>

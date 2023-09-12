@@ -1,14 +1,8 @@
-"use client";
 import Image from "next/image";
 
-function AboutMePage() {
+function PortfolioDetailsComponents({ slug }) {
   return (
-    <section
-      id="about"
-      className="h-screen"
-      data-aos="zoom-in"
-      data-aos-duration="1500"
-    >
+    <section className="h-screen">
       <div className="w-full flex">
         <div className="w-0 md:w-1/2 h-1/2">
           <div className="flex justify-center ">
@@ -35,8 +29,8 @@ function AboutMePage() {
               {/* <h2 className="text-xl font-bold">Fullstack Developer!</h2> */}
 
               <span className="mt-3">
-                As an accomplished Fullstack Developer with over 5 years of
-                expertise in API development, database configuration, and
+                {slug} As an accomplished Fullstack Developer with over 5 years
+                of expertise in API development, database configuration, and
                 proficiency in Node.js, WordPress, and React.js, I prioritize
                 performance and security in all my projects. I excel in
                 implementing microservices architectures using Next.js for
@@ -54,4 +48,4 @@ function AboutMePage() {
   );
 }
 
-export default AboutMePage;
+export default PortfolioDetailsComponents;

@@ -7,6 +7,7 @@ function PortfolioPage() {
     {
       id: 1,
       name: "Euna Italian Restaurant",
+      slug: "euna-italian-restaurant",
       img: "/img/portfolio/euna.png",
       alt: "Euna Italian Restaurant",
       link: "https://demo-euna.indrajohn.tech/",
@@ -14,20 +15,23 @@ function PortfolioPage() {
     {
       id: 2,
       name: "Armada Orient Furniture",
+      slug: "armada-orient-furniture",
       img: "/img/portfolio/armadaorient.png",
       alt: "Armada Orient",
       link: "https://armadaorient.com/",
     },
     {
       id: 3,
-      name: "GBI Miracle Service",
+      name: "GBI Miracle Service Sydney",
+      slug: "gbi-miracle-services-sydney",
       img: "/img/portfolio/gbi_miracle_service_sydney.png",
-      alt: "GBI Miracle Service",
+      alt: "GBI Miracle Service Sydney",
       link: "https://www.gbimssydney.org.au/",
     },
     {
       id: 4,
       name: "Hana Bank Indonesia",
+      slug: "hana-bank-indonesia",
       img: "/img/portfolio/hana_bank.png",
       alt: "Hana Bank Indonesia",
       link: "https://www.hanabank.co.id/",
@@ -35,20 +39,22 @@ function PortfolioPage() {
     {
       id: 5,
       name: "Indra Wedding",
+      slug: "indra-wedding",
       img: "/img/portfolio/indra_wedding.png",
       alt: "Indra Wedding",
       link: "https://wedding.indrajohn.com.au/",
     },
     {
-      id: 5,
+      id: 6,
       name: "Murni Wedding",
+      slug: "murni-wedding",
       img: "/img/portfolio/murni_wedding.png",
       alt: "Murni Wedding",
-      link: "https://murni-wedding.indrajohn.com.au/",
+      link: "https://murniwedding.indrajohn.com.au/",
     },
   ];
   return (
-    <section id="portfolio">
+    <section id="portfolio" data-aos="zoom-down" data-aos-duration="1500">
       <div className="w-full flex">
         <div className="w-full text-white flex">
           <div className="m-8 flex text-center flex-col items-center justify-center w-full">
@@ -82,7 +88,7 @@ function PortfolioPage() {
                           </h1>
                           <div className="grid grid-cols-2 gap-4">
                             <Link
-                              href={"#"}
+                              href={`/portfolio/details/${_portfolio.slug}`}
                               className="p-2 flex items-center justify-center rounded border-2 border-slate-600 hover:bg-slate-600"
                             >
                               Details
@@ -105,10 +111,10 @@ function PortfolioPage() {
                                 <g
                                   fill="none"
                                   stroke="#000"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-miterlimit="10"
-                                  stroke-width="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeMiterlimit="10"
+                                  strokeWidth="2"
                                 >
                                   <path d="M51.065 43.916V10.979H18.937v49.76h16.062M23.667 16.02H32m-8.333 8.48h22m-22 3.771h22m-22 3.77h22m-22 3.771h22m-22 3.771h22M36.38 43.35H23.67m9.58 3.77h-9.58m8.45 3.77h-8.45" />
                                   <circle cx="43.167" cy="52.167" r="11.129" />
@@ -117,7 +123,8 @@ function PortfolioPage() {
                               </svg>
                             </Link>
                             <Link
-                              href={"#"}
+                              href={_portfolio.link}
+                              target="_blank"
                               className="p-2  flex items-center justify-center  rounded border-2 border-slate-600 hover:bg-slate-600"
                             >
                               Go To Website

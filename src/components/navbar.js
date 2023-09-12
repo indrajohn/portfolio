@@ -24,11 +24,11 @@ function NavBar() {
       url: "skill",
       top: 0,
     },
-    {
-      title: "Services",
-      url: "services",
-      top: 0,
-    },
+    // {
+    //   title: "Services",
+    //   url: "services",
+    //   top: 0,
+    // },
     {
       title: "Portfolio",
       url: "portfolio",
@@ -42,31 +42,35 @@ function NavBar() {
   ]);
 
   useEffect(() => {
-    if (window !== undefined) {
+    if (typeof window !== "undefined") {
       const handleScroll = () => {
         setIsFixed(window.scrollY > 20);
+
+        let newActiveMenu = "";
+        for (let _menu of menu) {
+          const element = document.getElementById(_menu.url);
+          if (element) {
+            _menu.top = element.getBoundingClientRect().top + window.scrollY;
+            if (window.scrollY >= _menu.top - 91) {
+              newActiveMenu = _menu.url;
+            }
+          }
+        }
+        setNavBarActive(newActiveMenu);
       };
 
       window.addEventListener("scroll", handleScroll);
-
-      let _menuArr = [];
-      menu.map((_menu) => {
-        _menu.top = document
-          .getElementById(_menu.url)
-          .getBoundingClientRect().top;
-        _menuArr.push(_menu);
-      });
-      setMenu(_menuArr);
 
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, []);
+  }, [menu, setNavBarActive]);
 
   const scrollInto = (top) => {
     window.scrollTo(0, top - 90);
   };
+
   return (
     <nav
       className={`z-50 w-full ${
@@ -97,7 +101,8 @@ function NavBar() {
                       scrollInto(_menu.url === "home" ? 0 : _menu.top);
                     }}
                     data-aos="fade-up"
-                    data-aos-duration={`${900 + index * 400}`}
+                    data-aos-easing="linear"
+                    data-aos-duration={`${800 + index * 400}`}
                     // href={_menu.url}
                     className={`text-gray-300 hover:text-[#0ef] px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
                       navbarActive === _menu.url ? "active" : ""

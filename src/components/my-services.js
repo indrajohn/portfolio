@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function MyServicesPage() {
   return (
-    <section id="services">
+    <section id="services" data-aos="zoom-in-down" data-aos-duration="1500">
       <div className="w-full flex">
         <div className="w-full text-white flex">
           <div className="m-8 flex text-center flex-col">

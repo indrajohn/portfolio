@@ -9,12 +9,13 @@ export function useLayoutProvider() {
 }
 function MyContextComponents({ children }) {
   const [navbarActive, setNavBarActive] = useState("home");
+  const [isDetail, setIsDetails] = useState(false);
   useEffect(() => {
     AOS.init();
   }, []);
   const contextValue = useMemo(() => {
-    return { navbarActive, setNavBarActive };
-  }, [navbarActive, setNavBarActive]);
+    return { navbarActive, setNavBarActive, isDetail, setIsDetails };
+  }, [navbarActive, setNavBarActive, isDetail, setIsDetails]);
   return (
     <MyContext.Provider value={contextValue}>
       <main>{children}</main>
