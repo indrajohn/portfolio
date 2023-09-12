@@ -1,12 +1,62 @@
 "use client";
 
-function ContactPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Replace with your actual form handling logic
-    console.log("Form submitted!");
-  };
+import { useEffect, useState } from "react";
 
+function ContactPage() {
+  const [loading, setLoading] = useState(false);
+  const [toastType, setToastType] = useState(null);
+  const [toastMessage, setToastMessage] = useState(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setToastMessage(null);
+
+    const formData = new FormData(e.target);
+    const _data = {
+      fullName: formData.get("fullName"),
+      email: formData.get("email"),
+      mobileNumber: formData.get("mobileNumber"),
+      emailSubject: formData.get("emailSubject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(_data),
+      });
+
+      if (response.ok) {
+        setToastMessage("Data sent successfully!");
+        setToastType("success");
+        e.target.reset();
+      } else {
+        setToastMessage("Error sending data.");
+        setToastType("error");
+      }
+    } catch (error) {
+      setToastMessage("There was an error sending the data.");
+      setToastType("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    let toastTimer;
+    if (toastMessage) {
+      toastTimer = setTimeout(() => {
+        setToastMessage(null);
+        setToastType(null);
+      }, 3000); // Clears the toast message after 3 seconds
+    }
+    return () => {
+      clearTimeout(toastTimer); // Cleanup timeout when the component unmounts
+    };
+  }, [toastMessage]);
   return (
     <section
       id="contact"
@@ -120,10 +170,20 @@ function ContactPage() {
             <button
               className="bg-[#0ef] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
+              disabled={loading}
             >
-              Submit
+              {loading ? "Loading..." : "Submit"}
             </button>
           </div>
+          {toastMessage && (
+            <div
+              className={`toast-message flex flex-row items-center justify-center rounded p-2 m-4 ${
+                toastType === "success" ? "bg-green-500" : "bg-red-500"
+              }`}
+            >
+              {toastMessage}
+            </div>
+          )}
         </form>
       </div>
     </section>
