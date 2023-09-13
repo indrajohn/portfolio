@@ -67,6 +67,11 @@ function NavBar() {
     }
   }, [menu, setNavBarActive]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setNavBarActive("home");
+  }, []);
+
   const scrollInto = (top) => {
     window.scrollTo(0, top - 90);
   };
@@ -83,7 +88,7 @@ function NavBar() {
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link
-              href="#home"
+              href="/"
               className="font-bold text-white text-2xl"
               data-aos="fade-up"
               data-aos-duration={`900`}

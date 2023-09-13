@@ -26,11 +26,11 @@ function PortfolioPage() {
                 >
                   <div className="relative w-full h-full min-h-[250px] max-h-[400px]">
                     <Image
-                      src={_portfolio.img}
+                      src={_portfolio.img || ""}
                       width={500}
                       height={500}
                       className="object-cover absolute top-0 left-0 w-full h-full min-h-[250px] max-h-[400px]"
-                      alt={_portfolio.alt}
+                      alt={_portfolio.alt || ""}
                     />
                     <div className="absolute z-50 w-full h-0 bottom-0 left-0 bg-[#1f242d]/90 overflow-hidden duration-1000 transform group-hover:h-full">
                       <div className="flex flex-col items-center justify-center h-full px-4 my-auto">
@@ -75,7 +75,7 @@ function PortfolioPage() {
                               </svg>
                             </Link>
                             <Link
-                              href={_portfolio.link}
+                              href={_portfolio.link || "/"}
                               target="_blank"
                               className="p-2  flex items-center justify-center  rounded border-2 border-slate-600 hover:bg-slate-600"
                             >

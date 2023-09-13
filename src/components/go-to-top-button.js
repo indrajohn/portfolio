@@ -5,7 +5,6 @@ function GoToTopButton() {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setShowButton(true);
