@@ -60,19 +60,21 @@ const Timeline = () => {
 
   return (
     <section
-      className="bg-[#1f242d] min-h-screen text-white p-6"
+      className="bg-[#1f242d] min-h-screen text-white p-4 sm:p-6"
       id="skill"
       data-aos="zoom-in-down"
       data-aos-duration="1500"
     >
       <div className="flex items-center justify-center">
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-2xl sm:text-3xl font-bold">
           My
-          <span className="text-3xl font-bold text-[#0ef] mx-2">Journey</span>
+          <span className="text-2xl sm:text-3xl font-bold text-[#0ef] mx-2">
+            Journey
+          </span>
         </h1>
       </div>
 
-      <div className="relative m-8 rounded-lg">
+      <div className="relative m-4 sm:m-8 rounded-lg">
         {/* Vertical Line */}
         <div className="absolute inset-y-0 left-1/2 w-0.5 bg-[#0ef] z-0"></div>
 
@@ -80,18 +82,18 @@ const Timeline = () => {
           {milestones.map((milestone, index) => (
             <div
               key={index}
-              className="flex mb-8 justify-between"
+              className="flex flex-col sm:flex-row mb-4 sm:mb-8 justify-between"
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
               {/* Card */}
               <div
-                className={`w-1/2 p-6 ${
-                  index % 2 === 0 ? "pr-12" : "pl-12"
+                className={`w-full sm:w-1/2 p-2 sm:p-6 ${
+                  index % 2 === 0 ? "sm:pr-12" : "sm:pl-12"
                 } relative`}
               >
                 {index % 2 === 0 && (
-                  <div className="rounded-lg shadow-lg p-6 bg-white text-black">
+                  <div className="rounded-lg shadow-lg p-4 sm:p-6 bg-white text-black">
                     <h3 className="font-bold text-lg">{milestone.year}</h3>
                     <p className="font-semibold mt-2">{milestone.job}</p>
                     <ul className="m-4 list-disc">
@@ -104,17 +106,17 @@ const Timeline = () => {
               </div>
 
               {/* Circle Marker */}
-              <div className="flex justify-center items-center z-50 relative">
-                <div className="w-[24px] h-[24px] rounded-full bg-[#0ef]"></div>
+              <div className="flex justify-center items-center z-50 relative mb-4 sm:mb-0">
+                <div className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px] rounded-full bg-[#0ef]"></div>
               </div>
 
               <div
-                className={`w-1/2 p-6 ${
-                  index % 2 === 0 ? "pl-12" : "pr-12"
+                className={`w-full sm:w-1/2 p-2 sm:p-6 ${
+                  index % 2 === 0 ? "sm:pl-12" : "sm:pr-12"
                 } relative`}
               >
                 {index % 2 !== 0 && (
-                  <div className="rounded-lg shadow-lg p-6 bg-white text-black">
+                  <div className="rounded-lg shadow-lg p-4 sm:p-6 bg-white text-black">
                     <h3 className="font-bold text-lg">{milestone.year}</h3>
                     <p className="font-semibold mt-2">{milestone.job}</p>
                     <ul className="m-4 list-disc">
