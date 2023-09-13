@@ -1,58 +1,10 @@
 "use client";
+import { useLayoutProvider } from "@/context/myContext";
 import Image from "next/image";
 import Link from "next/link";
 
 function PortfolioPage() {
-  const portfolioList = [
-    {
-      id: 1,
-      name: "Euna Italian Restaurant",
-      slug: "euna-italian-restaurant",
-      img: "/img/portfolio/euna.png",
-      alt: "Euna Italian Restaurant",
-      link: "https://demo-euna.indrajohn.tech/",
-    },
-    {
-      id: 2,
-      name: "Armada Orient Furniture",
-      slug: "armada-orient-furniture",
-      img: "/img/portfolio/armadaorient.png",
-      alt: "Armada Orient",
-      link: "https://armadaorient.com/",
-    },
-    {
-      id: 3,
-      name: "GBI Miracle Service Sydney",
-      slug: "gbi-miracle-services-sydney",
-      img: "/img/portfolio/gbi_miracle_service_sydney.png",
-      alt: "GBI Miracle Service Sydney",
-      link: "https://www.gbimssydney.org.au/",
-    },
-    {
-      id: 4,
-      name: "Hana Bank Indonesia",
-      slug: "hana-bank-indonesia",
-      img: "/img/portfolio/hana_bank.png",
-      alt: "Hana Bank Indonesia",
-      link: "https://www.hanabank.co.id/",
-    },
-    {
-      id: 5,
-      name: "Indra Wedding",
-      slug: "indra-wedding",
-      img: "/img/portfolio/indra_wedding.png",
-      alt: "Indra Wedding",
-      link: "https://wedding.indrajohn.com.au/",
-    },
-    {
-      id: 6,
-      name: "Murni Wedding",
-      slug: "murni-wedding",
-      img: "/img/portfolio/murni_wedding.png",
-      alt: "Murni Wedding",
-      link: "https://murniwedding.indrajohn.com.au/",
-    },
-  ];
+  const { portfolioList } = useLayoutProvider();
   return (
     <section id="portfolio" data-aos="zoom-down" data-aos-duration="1500">
       <div className="w-full flex">

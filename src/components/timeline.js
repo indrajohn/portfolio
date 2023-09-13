@@ -65,8 +65,11 @@ const Timeline = () => {
       data-aos="zoom-in-down"
       data-aos-duration="1500"
     >
-      <div className="text-center">
-        <h1 className="text-4xl p-5">My Timeline Portfolio</h1>
+      <div className="flex items-center justify-center">
+        <h1 className="text-3xl font-bold">
+          My
+          <span className="text-3xl font-bold text-[#0ef] mx-2">Journey</span>
+        </h1>
       </div>
 
       <div className="relative m-8 rounded-lg">
@@ -75,7 +78,12 @@ const Timeline = () => {
 
         <div className="relative z-10">
           {milestones.map((milestone, index) => (
-            <div key={index} className="flex mb-8 justify-between">
+            <div
+              key={index}
+              className="flex mb-8 justify-between"
+              data-aos="zoom-in-down"
+              data-aos-duration="1500"
+            >
               {/* Card */}
               <div
                 className={`w-1/2 p-6 ${
