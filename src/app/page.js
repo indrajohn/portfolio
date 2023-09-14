@@ -11,16 +11,6 @@ import Script from "next/script";
 export default function Home() {
   return (
     <>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-9PM69CL8XL" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-9PM69CL8XL');
-        `}
-      </Script>
       <NavBar />
       <Hero />
 
