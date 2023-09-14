@@ -28,8 +28,6 @@ function Hero() {
               <span
                 className="mt-3"
                 data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
                 data-aos-duration="1500"
               >
                 I have over 5 years+ of development experience, including
