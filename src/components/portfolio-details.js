@@ -15,7 +15,7 @@ function PortfolioDetailsComponents({ slug }) {
   return (
     <section className="h-screen p-8">
       <div className="w-full flex">
-        <div className="w-0 md:w-1/2 h-1/2">
+        <div className="w-full md:w-1/2 h-1/2">
           <div className="flex justify-center items-center">
             {data && (
               <Image
