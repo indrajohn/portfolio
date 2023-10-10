@@ -43,20 +43,38 @@ function NavBar() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      let newActiveMenu = "";
+      for (let _menu of menu) {
+        const element = document.getElementById(_menu.url);
+        if (element) {
+          _menu.top = element.getBoundingClientRect().top + window.scrollY;
+          if (window.scrollY >= _menu.top - 91) {
+            newActiveMenu = _menu.url;
+          }
+        }
+      }
+      setNavBarActive(newActiveMenu);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
       const handleScroll = () => {
         setIsFixed(window.scrollY > 20);
 
         let newActiveMenu = "";
-        for (let _menu of menu) {
-          const element = document.getElementById(_menu.url);
-          if (element) {
-            _menu.top = element.getBoundingClientRect().top + window.scrollY;
-            if (window.scrollY >= _menu.top - 91) {
-              newActiveMenu = _menu.url;
+        setTimeout(() => {
+          for (let _menu of menu) {
+            const element = document.getElementById(_menu.url);
+            if (element) {
+              _menu.top = element.getBoundingClientRect().top + window.scrollY;
+              if (window.scrollY >= _menu.top - 91) {
+                newActiveMenu = _menu.url;
+              }
             }
           }
-        }
-        setNavBarActive(newActiveMenu);
+          setNavBarActive(newActiveMenu);
+        }, 300);
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -73,6 +91,7 @@ function NavBar() {
   }, []);
 
   const scrollInto = (top) => {
+    console.log(top);
     window.scrollTo(0, top - 90);
   };
 
@@ -103,7 +122,7 @@ function NavBar() {
                   <div
                     key={index}
                     onClick={() => {
-                      scrollInto(_menu.url === "home" ? 0 : _menu.top);
+                      scrollInto(_menu.top);
                     }}
                     data-aos="fade-up"
                     data-aos-easing="linear"
