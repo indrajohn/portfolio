@@ -22,6 +22,8 @@ const Timeline = () => {
         "Pioneered the transition to Microservices architecture,enhancing application scalability and flexibility",
         "Directed the strategic migration to Next.js, prioritizing website performance and SEO",
         "Cultivated synergy with the UI/UX team, embedding designs into the Next.js framework",
+        "Established advanced CI/CD strategies, enhancing release efficiency and application robustness",
+        "Maintained and improved internal recruitment applications using C# for the API, ASP.NET for the frontend, and SQL Server for databases. This robust web-based application streamlined the entire recruitment lifecycle, encompassing aspects such as job posting, application tracking, candidate shortlisting, interview scheduling, communication, rejection, offer management, and the onboarding process",
       ],
     },
     {
