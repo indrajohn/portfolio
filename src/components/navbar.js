@@ -41,7 +41,7 @@ function NavBar() {
     },
   ]);
 
-  useEffect(() => {
+  const changeNavToLastScroll = () => {
     if (typeof window !== "undefined") {
       let newActiveMenu = "";
       for (let _menu of menu) {
@@ -55,6 +55,10 @@ function NavBar() {
       }
       setNavBarActive(newActiveMenu);
     }
+  };
+
+  useEffect(() => {
+    changeNavToLastScroll();
   }, []);
 
   useEffect(() => {
@@ -62,19 +66,7 @@ function NavBar() {
       const handleScroll = () => {
         setIsFixed(window.scrollY > 20);
 
-        let newActiveMenu = "";
-        setTimeout(() => {
-          for (let _menu of menu) {
-            const element = document.getElementById(_menu.url);
-            if (element) {
-              _menu.top = element.getBoundingClientRect().top + window.scrollY;
-              if (window.scrollY >= _menu.top - 91) {
-                newActiveMenu = _menu.url;
-              }
-            }
-          }
-          setNavBarActive(newActiveMenu);
-        }, 300);
+        changeNavToLastScroll();
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -126,7 +118,7 @@ function NavBar() {
                     }}
                     data-aos="fade-up"
                     data-aos-easing="linear"
-                    data-aos-duration={`${800 + index * 400}`}
+                    data-aos-duration={`${400 + index * 400}`}
                     // href={_menu.url}
                     className={`text-gray-300 hover:text-[#0ef] px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
                       navbarActive === _menu.url ? "active" : ""
