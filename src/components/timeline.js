@@ -3,17 +3,6 @@
 const Timeline = () => {
   const milestones = [
     {
-      year: "Jul 2023 - Aug 2023",
-      job: "Java Developer at Go International Service ",
-      description: [
-        "Elevated Java applications' performance by 20%, consistently surpassing industry benchmarks",
-        "Galvanized teams to clarify and streamline system requirements, resulting in a 20% faster project turnaround time and a 15% reduction in system-related errors",
-        "Spearheaded optimization of MySQL databases,enhancing data integrity for real-time betting",
-        "Innovated software architecture, emphasizing system scalability and resilience",
-        "Orchestrated the seamless merger of Next.js frontend applications with Java backends, enhancing user engagement",
-      ],
-    },
-    {
       year: "Jan 2020 - Mei 2023 ",
       job: "Full Stack Developer at Bank KEB Hana Indonesia ",
       description: [

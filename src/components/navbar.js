@@ -44,7 +44,8 @@ function NavBar() {
   const changeNavToLastScroll = () => {
     if (typeof window !== "undefined") {
       let newActiveMenu = "";
-      for (let _menu of menu) {
+      let __menu = [...menu];
+      for (let _menu of __menu) {
         const element = document.getElementById(_menu.url);
         if (element) {
           _menu.top = element.getBoundingClientRect().top + window.scrollY;
@@ -53,6 +54,7 @@ function NavBar() {
           }
         }
       }
+      setMenu(__menu);
       setNavBarActive(newActiveMenu);
     }
   };
